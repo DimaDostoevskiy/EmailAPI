@@ -1,0 +1,9 @@
+        // public Email(string subject, string body, string[] recipients, string result = "Ok")
+        // {
+        //     CreateTime = DateTime.UtcNow.ToString();
+        //     Result = result;
+        //     Subject = subject;
+        //     Body = body;
+        //     Recipients = recipients;
+        //     Result = result;
+        // }

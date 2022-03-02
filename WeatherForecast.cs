@@ -1,3 +1,7 @@
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
+
 namespace EmailAPI;
 
 public class WeatherForecast
@@ -6,7 +10,16 @@ public class WeatherForecast
 
     public int TemperatureC { get; set; }
 
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+    [NotMapped]
+    public string[] SummarysList
+    {
+        get => _summarys.Split(',').ToArray<string>();
+        set => _summarys = string.Join(",", value); 
+    }
 
-    public string? Summary { get; set; }
+    [EditorBrowsable(EditorBrowsableState.Never)]
+    [JsonIgnore]
+    private string _summarys { get; set; } = string.Empty;
+
+
 }
